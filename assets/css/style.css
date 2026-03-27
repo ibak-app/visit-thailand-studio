@@ -268,6 +268,39 @@ p {
   border-radius: 1px;
 }
 
+/* --- Language Switch --- */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.lang-switch a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: var(--navy);
+  opacity: 0.55;
+  transition: opacity var(--transition), background var(--transition);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.lang-switch a:hover {
+  opacity: 1;
+  background: rgba(13, 115, 119, 0.08);
+}
+
+.lang-switch a.active {
+  opacity: 1;
+  background: rgba(13, 115, 119, 0.12);
+  pointer-events: none;
+}
+
 /* --- Mobile Menu Toggle (Animated Hamburger → X) --- */
 .navbar__toggle {
   display: none;
@@ -1581,121 +1614,6 @@ textarea:focus-visible {
 }
 
 /* ============================================================
-   DARK MODE (optional — system preference)
-   ============================================================ */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0F0F1A;
-    --bg-alt: #1A1A2E;
-    --text: #E2E8F0;
-    --text-muted: #94A3B8;
-    --border: #2D2D44;
-    --shadow: 0 1px 3px rgba(0,0,0,.2), 0 2px 8px rgba(0,0,0,.15);
-    --shadow-md: 0 4px 16px rgba(0,0,0,.3);
-    --shadow-lg: 0 8px 32px rgba(0,0,0,.35);
-  }
-
-  .navbar {
-    background: rgba(15, 15, 26, 0.92);
-    border-bottom-color: var(--border);
-  }
-
-  .card {
-    background: #1A1A2E;
-  }
-
-  .card__title {
-    color: #E2E8F0;
-  }
-
-  .content-block__title,
-  .content-block h2,
-  .content-section h2,
-  .content-page h2 {
-    color: #E2E8F0;
-  }
-
-  .info-box {
-    background: rgba(13, 115, 119, 0.1);
-  }
-
-  .info-box--tip {
-    background: rgba(45, 139, 78, 0.1);
-  }
-
-  .info-box--warning,
-  .info-box--gold,
-  .info-box--saffron {
-    background: rgba(232, 149, 29, 0.1);
-  }
-
-  .warning-box {
-    background: rgba(196, 54, 42, 0.1);
-    color: #FCA5A5;
-  }
-
-  .data-table th,
-  .content-table th,
-  .content-section table th,
-  .content-block table th,
-  .content-page table th {
-    background: #0D0D1A;
-  }
-
-  .data-table tbody tr:hover,
-  .content-table tbody tr:hover,
-  .content-section table tbody tr:hover,
-  .content-block table tbody tr:hover,
-  .content-page table tbody tr:hover {
-    background: rgba(13, 115, 119, 0.1);
-  }
-
-  .content-block blockquote,
-  .content-section blockquote,
-  .content-page blockquote {
-    background: rgba(212, 168, 67, 0.05);
-  }
-
-  .content-block pre,
-  .content-section pre,
-  .content-page pre {
-    background: #0D0D1A;
-  }
-
-  .content-block code,
-  .content-section code,
-  .content-page code {
-    background: #252540;
-    color: var(--teal-light);
-  }
-
-  .content-nav {
-    background: #1A1A2E;
-  }
-
-  .faq-item__question {
-    background: #1A1A2E;
-  }
-
-  .mobile-menu {
-    background: rgba(15, 15, 26, 0.98);
-  }
-
-  ::selection {
-    background: rgba(212, 168, 67, 0.3);
-    color: #fff;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #1A1A2E;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #3D3D5C;
-  }
-}
-
-/* ============================================================
    PRINT STYLES
    ============================================================ */
 @media print {
@@ -1758,4 +1676,40 @@ textarea:focus-visible {
     max-width: 100%;
     padding: 0;
   }
+}
+
+/* Language Selector */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.lang-switch a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: var(--text-muted, #64748B);
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1.5px solid var(--border, #E2E0DB);
+  background: transparent;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.lang-switch a:hover {
+  border-color: var(--gold, #D4A843);
+  color: var(--gold, #D4A843);
+}
+
+.lang-switch a.active {
+  background: var(--gold, #D4A843);
+  color: #fff;
+  border-color: var(--gold, #D4A843);
 }
